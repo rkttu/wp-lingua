@@ -1,0 +1,2 @@
+# This directory is mounted into the WordPress container.
+# Place custom themes here if needed.

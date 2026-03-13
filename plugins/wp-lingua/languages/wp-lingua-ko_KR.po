@@ -1,0 +1,98 @@
+# Korean translation for WP Lingua
+# Copyright (C) 2026 Jung Hyun, Nam
+# This file is distributed under the Apache License 2.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Lingua 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-13 00:00+0000\n"
+"PO-Revision-Date: 2026-03-13 00:00+0000\n"
+"Last-Translator: Jung Hyun, Nam\n"
+"Language-Team: Korean\n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: wp-lingua\n"
+
+msgid "Lingua Languages"
+msgstr "Lingua 언어"
+
+msgid "Lingua Language Settings"
+msgstr "Lingua 언어 설정"
+
+msgid "Language Settings"
+msgstr "언어 설정"
+
+msgid "Enabled Languages"
+msgstr "활성 언어"
+
+msgid "Default Language"
+msgstr "기본 언어"
+
+msgid "Only checked languages will appear in the language switcher."
+msgstr "선택한 언어만 언어 전환기에 표시됩니다."
+
+msgid "Dropdown"
+msgstr "드롭다운"
+
+msgid "Buttons"
+msgstr "버튼"
+
+msgid "Translation Groups"
+msgstr "번역 그룹"
+
+msgid "Translation Group"
+msgstr "번역 그룹"
+
+msgid "Translations"
+msgstr "번역"
+
+msgid "Language"
+msgstr "언어"
+
+msgid "— Select —"
+msgstr "— 선택 —"
+
+msgid "Linked Translations"
+msgstr "연결된 번역"
+
+msgid "Add Translation"
+msgstr "번역 추가"
+
+msgid "Lang"
+msgstr "언어"
+
+msgid "All Languages"
+msgstr "전체 언어"
+
+msgid "Invalid request."
+msgstr "잘못된 요청입니다."
+
+msgid "Permission denied."
+msgstr "권한이 없습니다."
+
+msgid "Settings"
+msgstr "설정"
+
+msgid "Source post not found."
+msgstr "원본 글을 찾을 수 없습니다."
+
+msgid "A translation for this language already exists."
+msgstr "이 언어에 대한 번역이 이미 존재합니다."
+
+msgid "[%2$s] %1$s"
+msgstr "[%2$s] %1$s"
+
+msgid "Language Switcher"
+msgstr "언어 전환기"
+
+msgid "Displays a site-wide language switcher."
+msgstr "사이트 전체 언어 전환기를 표시합니다."
+
+msgid "Title:"
+msgstr "제목:"
+
+msgid "Display style:"
+msgstr "표시 스타일:"

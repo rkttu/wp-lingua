@@ -1,0 +1,98 @@
+# French translation for WP Lingua
+# Copyright (C) 2026 Jung Hyun, Nam
+# This file is distributed under the Apache License 2.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Lingua 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-13 00:00+0000\n"
+"PO-Revision-Date: 2026-03-13 00:00+0000\n"
+"Last-Translator: Jung Hyun, Nam\n"
+"Language-Team: French\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: wp-lingua\n"
+
+msgid "Lingua Languages"
+msgstr "Lingua Langues"
+
+msgid "Lingua Language Settings"
+msgstr "Paramètres de langue Lingua"
+
+msgid "Language Settings"
+msgstr "Paramètres de langue"
+
+msgid "Enabled Languages"
+msgstr "Langues activées"
+
+msgid "Default Language"
+msgstr "Langue par défaut"
+
+msgid "Only checked languages will appear in the language switcher."
+msgstr "Seules les langues cochées apparaîtront dans le sélecteur de langue."
+
+msgid "Dropdown"
+msgstr "Menu déroulant"
+
+msgid "Buttons"
+msgstr "Boutons"
+
+msgid "Translation Groups"
+msgstr "Groupes de traduction"
+
+msgid "Translation Group"
+msgstr "Groupe de traduction"
+
+msgid "Translations"
+msgstr "Traductions"
+
+msgid "Language"
+msgstr "Langue"
+
+msgid "— Select —"
+msgstr "— Sélectionner —"
+
+msgid "Linked Translations"
+msgstr "Traductions liées"
+
+msgid "Add Translation"
+msgstr "Ajouter une traduction"
+
+msgid "Lang"
+msgstr "Langue"
+
+msgid "All Languages"
+msgstr "Toutes les langues"
+
+msgid "Invalid request."
+msgstr "Requête invalide."
+
+msgid "Permission denied."
+msgstr "Permission refusée."
+
+msgid "Settings"
+msgstr "Réglages"
+
+msgid "Source post not found."
+msgstr "Article source introuvable."
+
+msgid "A translation for this language already exists."
+msgstr "Une traduction pour cette langue existe déjà."
+
+msgid "[%2$s] %1$s"
+msgstr "[%2$s] %1$s"
+
+msgid "Language Switcher"
+msgstr "Sélecteur de langue"
+
+msgid "Displays a site-wide language switcher."
+msgstr "Affiche un sélecteur de langue pour l'ensemble du site."
+
+msgid "Title:"
+msgstr "Titre :"
+
+msgid "Display style:"
+msgstr "Style d'affichage :"

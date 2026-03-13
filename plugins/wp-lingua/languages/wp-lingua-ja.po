@@ -1,0 +1,98 @@
+# Japanese translation for WP Lingua
+# Copyright (C) 2026 Jung Hyun, Nam
+# This file is distributed under the Apache License 2.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Lingua 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-13 00:00+0000\n"
+"PO-Revision-Date: 2026-03-13 00:00+0000\n"
+"Last-Translator: Jung Hyun, Nam\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: wp-lingua\n"
+
+msgid "Lingua Languages"
+msgstr "Lingua 言語"
+
+msgid "Lingua Language Settings"
+msgstr "Lingua 言語設定"
+
+msgid "Language Settings"
+msgstr "言語設定"
+
+msgid "Enabled Languages"
+msgstr "有効な言語"
+
+msgid "Default Language"
+msgstr "デフォルト言語"
+
+msgid "Only checked languages will appear in the language switcher."
+msgstr "チェックされた言語のみが言語切替に表示されます。"
+
+msgid "Dropdown"
+msgstr "ドロップダウン"
+
+msgid "Buttons"
+msgstr "ボタン"
+
+msgid "Translation Groups"
+msgstr "翻訳グループ"
+
+msgid "Translation Group"
+msgstr "翻訳グループ"
+
+msgid "Translations"
+msgstr "翻訳"
+
+msgid "Language"
+msgstr "言語"
+
+msgid "— Select —"
+msgstr "— 選択 —"
+
+msgid "Linked Translations"
+msgstr "リンクされた翻訳"
+
+msgid "Add Translation"
+msgstr "翻訳を追加"
+
+msgid "Lang"
+msgstr "言語"
+
+msgid "All Languages"
+msgstr "すべての言語"
+
+msgid "Invalid request."
+msgstr "無効なリクエストです。"
+
+msgid "Permission denied."
+msgstr "権限がありません。"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Source post not found."
+msgstr "元の投稿が見つかりません。"
+
+msgid "A translation for this language already exists."
+msgstr "この言語の翻訳はすでに存在します。"
+
+msgid "[%2$s] %1$s"
+msgstr "[%2$s] %1$s"
+
+msgid "Language Switcher"
+msgstr "言語切替"
+
+msgid "Displays a site-wide language switcher."
+msgstr "サイト全体の言語切替を表示します。"
+
+msgid "Title:"
+msgstr "タイトル:"
+
+msgid "Display style:"
+msgstr "表示スタイル:"

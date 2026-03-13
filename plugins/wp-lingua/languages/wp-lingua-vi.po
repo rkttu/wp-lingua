@@ -1,0 +1,98 @@
+# Vietnamese translation for WP Lingua
+# Copyright (C) 2026 Jung Hyun, Nam
+# This file is distributed under the Apache License 2.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Lingua 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-13 00:00+0000\n"
+"PO-Revision-Date: 2026-03-13 00:00+0000\n"
+"Last-Translator: Jung Hyun, Nam\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: wp-lingua\n"
+
+msgid "Lingua Languages"
+msgstr "Lingua Ngôn ngữ"
+
+msgid "Lingua Language Settings"
+msgstr "Cài đặt ngôn ngữ Lingua"
+
+msgid "Language Settings"
+msgstr "Cài đặt ngôn ngữ"
+
+msgid "Enabled Languages"
+msgstr "Ngôn ngữ đã bật"
+
+msgid "Default Language"
+msgstr "Ngôn ngữ mặc định"
+
+msgid "Only checked languages will appear in the language switcher."
+msgstr "Chỉ các ngôn ngữ được chọn mới hiển thị trong bộ chuyển đổi ngôn ngữ."
+
+msgid "Dropdown"
+msgstr "Danh sách thả xuống"
+
+msgid "Buttons"
+msgstr "Nút"
+
+msgid "Translation Groups"
+msgstr "Nhóm bản dịch"
+
+msgid "Translation Group"
+msgstr "Nhóm bản dịch"
+
+msgid "Translations"
+msgstr "Bản dịch"
+
+msgid "Language"
+msgstr "Ngôn ngữ"
+
+msgid "— Select —"
+msgstr "— Chọn —"
+
+msgid "Linked Translations"
+msgstr "Bản dịch liên kết"
+
+msgid "Add Translation"
+msgstr "Thêm bản dịch"
+
+msgid "Lang"
+msgstr "Ngôn ngữ"
+
+msgid "All Languages"
+msgstr "Tất cả ngôn ngữ"
+
+msgid "Invalid request."
+msgstr "Yêu cầu không hợp lệ."
+
+msgid "Permission denied."
+msgstr "Không có quyền truy cập."
+
+msgid "Settings"
+msgstr "Cài đặt"
+
+msgid "Source post not found."
+msgstr "Không tìm thấy bài viết gốc."
+
+msgid "A translation for this language already exists."
+msgstr "Bản dịch cho ngôn ngữ này đã tồn tại."
+
+msgid "[%2$s] %1$s"
+msgstr "[%2$s] %1$s"
+
+msgid "Language Switcher"
+msgstr "Bộ chuyển đổi ngôn ngữ"
+
+msgid "Displays a site-wide language switcher."
+msgstr "Hiển thị bộ chuyển đổi ngôn ngữ cho toàn bộ trang web."
+
+msgid "Title:"
+msgstr "Tiêu đề:"
+
+msgid "Display style:"
+msgstr "Kiểu hiển thị:"

@@ -1,0 +1,72 @@
+.lingua-switcher {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	align-items: center;
+	padding: 0.6em 0;
+	margin-bottom: 1em;
+	border-bottom: 1px solid #ddd;
+	font-size: 0.9em;
+}
+
+.lingua-switcher__item {
+	padding: 0.25em 0.6em;
+	border-radius: 3px;
+	text-decoration: none;
+	color: #0073aa;
+	border: 1px solid #ddd;
+	transition: background 0.15s, color 0.15s;
+}
+
+.lingua-switcher__item:hover {
+	background: #0073aa;
+	color: #fff;
+	border-color: #0073aa;
+}
+
+.lingua-switcher__item--active {
+	background: #0073aa;
+	color: #fff;
+	border-color: #0073aa;
+	font-weight: 600;
+	cursor: default;
+}
+
+/* Footer compact dropdown switcher */
+.lingua-footer-select {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4em;
+	padding: 0.6em 1em;
+	font-size: 0.85em;
+	color: inherit;
+	opacity: 0.7;
+	transition: opacity 0.2s;
+}
+
+.lingua-footer-select:hover {
+	opacity: 1;
+}
+
+.lingua-footer-select__icon {
+	font-size: 1em;
+}
+
+.lingua-footer-select__dropdown {
+	font: inherit;
+	color: inherit;
+	background: transparent;
+	border: 1px solid currentColor;
+	border-radius: 4px;
+	padding: 0.25em 0.5em;
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+.lingua-footer-select__dropdown:hover,
+.lingua-footer-select__dropdown:focus {
+	opacity: 1;
+	outline: none;
+	border-color: currentColor;
+}

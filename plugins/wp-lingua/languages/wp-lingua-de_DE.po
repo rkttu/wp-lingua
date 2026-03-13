@@ -1,0 +1,98 @@
+# German translation for WP Lingua
+# Copyright (C) 2026 Jung Hyun, Nam
+# This file is distributed under the Apache License 2.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Lingua 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-13 00:00+0000\n"
+"PO-Revision-Date: 2026-03-13 00:00+0000\n"
+"Last-Translator: Jung Hyun, Nam\n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: wp-lingua\n"
+
+msgid "Lingua Languages"
+msgstr "Lingua Sprachen"
+
+msgid "Lingua Language Settings"
+msgstr "Lingua Spracheinstellungen"
+
+msgid "Language Settings"
+msgstr "Spracheinstellungen"
+
+msgid "Enabled Languages"
+msgstr "Aktivierte Sprachen"
+
+msgid "Default Language"
+msgstr "Standardsprache"
+
+msgid "Only checked languages will appear in the language switcher."
+msgstr "Nur ausgewählte Sprachen werden im Sprachumschalter angezeigt."
+
+msgid "Dropdown"
+msgstr "Dropdown"
+
+msgid "Buttons"
+msgstr "Schaltflächen"
+
+msgid "Translation Groups"
+msgstr "Übersetzungsgruppen"
+
+msgid "Translation Group"
+msgstr "Übersetzungsgruppe"
+
+msgid "Translations"
+msgstr "Übersetzungen"
+
+msgid "Language"
+msgstr "Sprache"
+
+msgid "— Select —"
+msgstr "— Auswählen —"
+
+msgid "Linked Translations"
+msgstr "Verknüpfte Übersetzungen"
+
+msgid "Add Translation"
+msgstr "Übersetzung hinzufügen"
+
+msgid "Lang"
+msgstr "Sprache"
+
+msgid "All Languages"
+msgstr "Alle Sprachen"
+
+msgid "Invalid request."
+msgstr "Ungültige Anfrage."
+
+msgid "Permission denied."
+msgstr "Zugriff verweigert."
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Source post not found."
+msgstr "Quellbeitrag nicht gefunden."
+
+msgid "A translation for this language already exists."
+msgstr "Eine Übersetzung für diese Sprache existiert bereits."
+
+msgid "[%2$s] %1$s"
+msgstr "[%2$s] %1$s"
+
+msgid "Language Switcher"
+msgstr "Sprachumschalter"
+
+msgid "Displays a site-wide language switcher."
+msgstr "Zeigt einen seitenweiten Sprachumschalter an."
+
+msgid "Title:"
+msgstr "Titel:"
+
+msgid "Display style:"
+msgstr "Darstellungsart:"

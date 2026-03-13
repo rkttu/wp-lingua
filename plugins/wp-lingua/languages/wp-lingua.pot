@@ -1,0 +1,125 @@
+# Copyright (C) 2026 Jung Hyun, Nam
+# This file is distributed under the Apache License 2.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Lingua 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-13 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: wp-lingua\n"
+
+#: includes/class-settings.php
+msgid "Lingua Languages"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Lingua Language Settings"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Language Settings"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Enabled Languages"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Default Language"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Only checked languages will appear in the language switcher."
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Dropdown"
+msgstr ""
+
+#: includes/class-settings.php
+msgid "Buttons"
+msgstr ""
+
+#: includes/class-taxonomy.php
+msgid "Translation Groups"
+msgstr ""
+
+#: includes/class-taxonomy.php
+msgid "Translation Group"
+msgstr ""
+
+#: includes/class-admin.php
+msgid "Translations"
+msgstr ""
+
+#: includes/class-admin.php
+msgid "Language"
+msgstr ""
+
+#: includes/class-admin.php
+msgid "— Select —"
+msgstr ""
+
+#: includes/class-admin.php
+msgid "Linked Translations"
+msgstr ""
+
+#: includes/class-admin.php
+msgid "Add Translation"
+msgstr ""
+
+#: includes/class-admin.php
+msgid "Lang"
+msgstr ""
+
+#: includes/class-admin.php
+msgid "All Languages"
+msgstr ""
+
+#: includes/class-admin.php
+msgid "Invalid request."
+msgstr ""
+
+#: includes/class-admin.php
+msgid "Permission denied."
+msgstr ""
+
+#: includes/class-admin.php wp-lingua.php
+msgid "Settings"
+msgstr ""
+
+#: includes/class-translation-group.php
+msgid "Source post not found."
+msgstr ""
+
+#: includes/class-translation-group.php
+msgid "A translation for this language already exists."
+msgstr ""
+
+#. translators: 1: original title, 2: language code
+#: includes/class-translation-group.php
+msgid "[%2$s] %1$s"
+msgstr ""
+
+#: includes/class-widget-switcher.php
+msgid "Language Switcher"
+msgstr ""
+
+#: includes/class-widget-switcher.php
+msgid "Displays a site-wide language switcher."
+msgstr ""
+
+#: includes/class-widget-switcher.php
+msgid "Title:"
+msgstr ""
+
+#: includes/class-widget-switcher.php
+msgid "Display style:"
+msgstr ""
