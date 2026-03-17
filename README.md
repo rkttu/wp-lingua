@@ -1,5 +1,9 @@
 # WP Lingua
 
+[![Tests](https://github.com/rkttu/wp-lingua/actions/workflows/test.yml/badge.svg)](https://github.com/rkttu/wp-lingua/actions/workflows/test.yml)
+[![Release](https://img.shields.io/github/v/release/rkttu/wp-lingua)](https://github.com/rkttu/wp-lingua/releases/latest)
+[![License](https://img.shields.io/github/license/rkttu/wp-lingua)](LICENSE.txt)
+
 A lightweight, minimally invasive multilingual plugin for WordPress. WP Lingua links translated posts through a custom taxonomy without modifying WordPress core or theme files — everything runs as a self-contained plugin.
 
 ## Requirements
