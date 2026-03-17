@@ -32,6 +32,7 @@ require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-translation-group.php';
 require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-frontend.php';
 require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-locale-switcher.php';
 require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-widget-switcher.php';
+require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-rest-controller.php';
 require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-admin.php';
 
 /**
@@ -40,8 +41,10 @@ require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-admin.php';
 function WP_LINGUA_init() {
 	load_plugin_textdomain( 'wp-lingua', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
-	// Register the Gutenberg block.
-	register_block_type( WP_LINGUA_PLUGIN_DIR . 'blocks/language-switcher' );
+	// Register the Gutenberg block (guard against double-registration).
+	if ( ! WP_Block_Type_Registry::get_instance()->is_registered( 'lingua/language-switcher' ) ) {
+		register_block_type( WP_LINGUA_PLUGIN_DIR . 'blocks/language-switcher' );
+	}
 }
 add_action( 'init', 'WP_LINGUA_init' );
 
@@ -114,6 +117,9 @@ $Lingua_frontend->register_hooks();
 
 $Lingua_locale_switcher = new Lingua_Locale_Switcher();
 $Lingua_locale_switcher->register_hooks();
+
+$Lingua_rest = new Lingua_REST_Controller();
+$Lingua_rest->register_hooks();
 
 if ( is_admin() ) {
 	$Lingua_admin = new Lingua_Admin();

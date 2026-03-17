@@ -86,6 +86,7 @@ plugins/wp-lingua/
 │   ├── class-taxonomy.php                # Custom taxonomy registration
 │   ├── class-post-meta.php               # Post meta registration & helpers
 │   ├── class-translation-group.php       # Translation group CRUD logic
+│   ├── class-rest-controller.php         # REST API controller (lingua/v1)
 │   ├── class-frontend.php                # Frontend switcher, query filtering, shortcodes
 │   ├── class-locale-switcher.php         # Dynamic locale switching
 │   ├── class-widget-switcher.php         # Classic widget
@@ -168,14 +169,108 @@ docker compose run --rm wpcli db export - > backup.sql
 ```text
 .
 ├── docker-compose.yml          # Service orchestration
+├── docker-compose.test.yml     # Test environment (PHPUnit + isolated DB)
 ├── Dockerfile                  # Custom WordPress image (dev PHP config, Mailpit SMTP)
+├── Dockerfile.test             # PHPUnit test runner image
 ├── wp-setup.sh                 # Auto-setup script
 ├── .env                        # Environment configuration
+├── .github/workflows/
+│   ├── release.yml             # Build & release on tag push
+│   └── test.yml                # PHPUnit CI on push/PR
 ├── plugins/                    # → wp-content/plugins (bind mount)
 │   └── wp-lingua/              # The plugin
 ├── themes/                     # → wp-content/themes (bind mount)
+├── tests/                      # PHPUnit test suite
+│   ├── bootstrap.php
+│   ├── phpunit.xml
+│   ├── test-rest-controller.php
+│   ├── test-translation-group.php
+│   └── bin/
+│       ├── install-wp-tests.sh
+│       └── run-tests.sh
 └── uploads/                    # → wp-content/uploads (bind mount)
 ```
+
+## REST API
+
+WP Lingua provides a dedicated REST API under the `lingua/v1` namespace for managing translation groups programmatically — useful for external publishing scripts (e.g. Hugo → WordPress) without exposing the internal taxonomy.
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| `POST` | `/wp-json/lingua/v1/link` | Link posts into a translation group |
+| `DELETE` | `/wp-json/lingua/v1/unlink/{post_id}` | Remove a post from its translation group |
+| `GET` | `/wp-json/lingua/v1/translations/{post_id}` | Get all translations for a post |
+
+### POST /lingua/v1/link
+
+Accepts two formats:
+
+**Language map** (sets `_Lingua_language` meta automatically):
+
+```json
+{ "post_ids": { "ko": 10, "en": 20, "ja": 30 } }
+```
+
+**Plain array** (posts must already have `_Lingua_language` meta set):
+
+```json
+{ "post_ids": [10, 20, 30] }
+```
+
+Requires `edit_posts` capability. Returns the `group_term_id` and linked post mapping.
+
+### GET /lingua/v1/translations/{post_id}
+
+Returns all translations in the same group:
+
+```json
+{
+  "post_id": 10,
+  "translations": {
+    "ko": { "post_id": 10, "title": "한국어 포스트", "status": "publish", "link": "..." },
+    "en": { "post_id": 20, "title": "English Post", "status": "publish", "link": "..." }
+  }
+}
+```
+
+Requires `read` capability.
+
+### DELETE /lingua/v1/unlink/{post_id}
+
+Removes the specified post from its translation group. Requires `edit_posts` capability.
+
+## Testing
+
+The project includes a PHPUnit integration test suite that runs against the WordPress test library inside Docker.
+
+### Running Tests
+
+```bash
+# Run the full test suite
+docker compose -f docker-compose.test.yml up --build --abort-on-container-exit
+
+# Clean up after tests
+docker compose -f docker-compose.test.yml down -v
+```
+
+### Test Infrastructure
+
+| File | Purpose |
+| --- | --- |
+| `docker-compose.test.yml` | Test-only Compose (isolated DB with tmpfs, PHPUnit container) |
+| `Dockerfile.test` | PHP 8.2 CLI + PHPUnit 9 + MySQL client + Polyfills |
+| `tests/bootstrap.php` | PHPUnit bootstrap (loads WP test lib + plugin) |
+| `tests/phpunit.xml` | PHPUnit configuration |
+| `tests/test-rest-controller.php` | REST API endpoint tests (13 cases) |
+| `tests/test-translation-group.php` | Translation group unit tests (8 cases) |
+| `tests/bin/install-wp-tests.sh` | Downloads WordPress test library |
+| `tests/bin/run-tests.sh` | Container entrypoint (install + run) |
+
+The test database uses `tmpfs` and is automatically cleaned up after each run. Each test method is isolated via database transaction rollback.
+
+### CI/CD
+
+Tests run automatically on every push to `main` and on pull requests via GitHub Actions (`.github/workflows/test.yml`).
 
 ## Hooks & Filters
 
