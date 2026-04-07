@@ -64,7 +64,7 @@ services:
       WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL:-admin@example.com}
       WP_LOCALE: ${WP_LOCALE:-ko_KR}
       WP_TIMEZONE: ${WP_TIMEZONE:-Asia/Seoul}
-      WP_ACTIVATE_PLUGINS: ${WP_ACTIVATE_PLUGINS:-wp-lingua}
+      WP_ACTIVATE_PLUGINS: ${WP_ACTIVATE_PLUGINS:-lingua-shared,wp-lingua}
       WP_LANGUAGE_PACKS: ${WP_LANGUAGE_PACKS:-ko_KR,ja,zh_CN,es_ES,fr_FR,de_DE,pt_BR,vi,th}
     volumes:
       - wp_data:/var/www/html
