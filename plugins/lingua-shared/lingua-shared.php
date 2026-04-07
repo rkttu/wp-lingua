@@ -22,14 +22,16 @@ define( 'LINGUA_SHARED_VERSION', '1.0.0' );
 define( 'LINGUA_SHARED_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
 // Guard against double-registration when multiple Lingua-family plugins are active.
-if ( ! class_exists( 'Lingua_Taxonomy' ) ) {
+// Both classes are loaded as a single unit to avoid partial-load issues.
+if ( ! defined( 'LINGUA_SHARED_LOADED' ) ) {
+	define( 'LINGUA_SHARED_LOADED', true );
+
 	require_once LINGUA_SHARED_PLUGIN_DIR . 'includes/class-taxonomy.php';
+	require_once LINGUA_SHARED_PLUGIN_DIR . 'includes/class-post-meta.php';
+
 	$lingua_shared_taxonomy = new Lingua_Taxonomy();
 	$lingua_shared_taxonomy->register_hooks();
-}
 
-if ( ! class_exists( 'Lingua_Post_Meta' ) ) {
-	require_once LINGUA_SHARED_PLUGIN_DIR . 'includes/class-post-meta.php';
 	$lingua_shared_post_meta = new Lingua_Post_Meta();
 	$lingua_shared_post_meta->register_hooks();
 }
