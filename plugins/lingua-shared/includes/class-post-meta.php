@@ -19,6 +19,11 @@ class Lingua_Post_Meta {
 	}
 
 	public function register_meta() {
+		// Lingua_Taxonomy must be loaded first (guaranteed by lingua-shared.php load order).
+		if ( ! class_exists( 'Lingua_Taxonomy' ) ) {
+			return;
+		}
+
 		$post_types = Lingua_Taxonomy::get_supported_post_types();
 
 		foreach ( $post_types as $post_type ) {
