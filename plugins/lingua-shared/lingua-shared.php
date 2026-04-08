@@ -12,19 +12,19 @@
  * Tested up to: 6.9
  * Requires PHP: 7.4
  * Text Domain: lingua-shared
+ * Domain Path: /languages
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'LINGUA_SHARED_VERSION', '1.0.0' );
-define( 'LINGUA_SHARED_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-
 // Guard against double-registration when multiple Lingua-family plugins are active.
 // Both classes are loaded as a single unit to avoid partial-load issues.
 if ( ! defined( 'LINGUA_SHARED_LOADED' ) ) {
 	define( 'LINGUA_SHARED_LOADED', true );
+	define( 'LINGUA_SHARED_VERSION', '1.0.0' );
+	define( 'LINGUA_SHARED_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
 	require_once LINGUA_SHARED_PLUGIN_DIR . 'includes/class-taxonomy.php';
 	require_once LINGUA_SHARED_PLUGIN_DIR . 'includes/class-post-meta.php';
@@ -34,4 +34,11 @@ if ( ! defined( 'LINGUA_SHARED_LOADED' ) ) {
 
 	$lingua_shared_post_meta = new Lingua_Post_Meta();
 	$lingua_shared_post_meta->register_hooks();
+
+	add_action(
+		'init',
+		function () {
+			load_plugin_textdomain( 'lingua-shared', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+		}
+	);
 }
