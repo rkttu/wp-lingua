@@ -29,7 +29,6 @@ services:
       WP_TESTS_DIR: /tmp/wordpress-tests-lib
       WP_CORE_DIR: /tmp/wordpress
     volumes:
-      - ./plugins/lingua-shared:/app/lingua-shared
       - ./plugins/wp-lingua:/app/wp-lingua
       - ./tests:/app/tests
     entrypoint: ["/bin/bash", "/app/tests/bin/run-tests.sh"]

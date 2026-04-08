@@ -11,7 +11,6 @@
  * Requires at least: 6.1
  * Tested up to: 6.9
  * Requires PHP: 7.4
- * Requires Plugins: lingua-shared
  * Text Domain: wp-lingua
  * Domain Path: /languages
  */
@@ -27,6 +26,8 @@ define( 'WP_LINGUA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 // Load includes.
 require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-languages.php';
 require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-settings.php';
+require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-taxonomy.php';
+require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-post-meta.php';
 require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-translation-group.php';
 require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-frontend.php';
 require_once WP_LINGUA_PLUGIN_DIR . 'includes/class-locale-switcher.php';
@@ -105,6 +106,12 @@ function wp_lingua_plugin_row_meta( $plugin_meta, $plugin_file ) {
 add_filter( 'plugin_row_meta', 'wp_lingua_plugin_row_meta', 10, 2 );
 
 // Bootstrap components.
+$Lingua_taxonomy  = new Lingua_Taxonomy();
+$Lingua_taxonomy->register_hooks();
+
+$Lingua_post_meta = new Lingua_Post_Meta();
+$Lingua_post_meta->register_hooks();
+
 $Lingua_frontend = new Lingua_Frontend();
 $Lingua_frontend->register_hooks();
 
