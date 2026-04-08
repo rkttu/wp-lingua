@@ -47,8 +47,8 @@ require_once $_tests_dir . '/includes/functions.php';
  * Manually load the plugin being tested.
  */
 function _manually_load_plugin() {
-	// lingua-shared must be loaded before wp-lingua (provides Lingua_Taxonomy and Lingua_Post_Meta).
-	require dirname( __DIR__ ) . '/lingua-shared/lingua-shared.php';
+	// pressento-shared must be loaded before wp-lingua (provides Pressento_Taxonomy and Pressento_Post_Meta).
+	require dirname( __DIR__ ) . '/pressento-shared/pressento-shared.php';
 	require dirname( __DIR__ ) . '/wp-lingua/wp-lingua.php';
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );

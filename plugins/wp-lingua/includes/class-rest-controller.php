@@ -123,7 +123,7 @@ class Lingua_REST_Controller {
 	 *
 	 * Accepts two formats:
 	 *
-	 * 1) Plain array – posts must already have _Lingua_language meta set:
+	 * 1) Plain array – posts must already have _Pressento_language meta set:
 	 *    { "post_ids": [10, 20, 30] }
 	 *
 	 * 2) Language map – sets language meta automatically:
@@ -191,7 +191,7 @@ class Lingua_REST_Controller {
 		foreach ( $posts_map as $lang => $post_id ) {
 			$post_id = (int) $post_id;
 
-			Lingua_Post_Meta::set_language( $post_id, $lang );
+			Pressento_Post_Meta::set_language( $post_id, $lang );
 
 			$result = Lingua_Translation_Group::add_to_group( $post_id, $group_term_id );
 			if ( is_wp_error( $result ) ) {
@@ -304,7 +304,7 @@ class Lingua_REST_Controller {
 			return $map;
 		}
 
-		// Sequential array: [10, 20, 30] — look up existing _Lingua_language meta.
+		// Sequential array: [10, 20, 30] — look up existing _Pressento_language meta.
 		$map = array();
 		foreach ( $raw as $id ) {
 			$id   = (int) $id;
@@ -315,12 +315,12 @@ class Lingua_REST_Controller {
 					array( 'status' => 400 )
 				);
 			}
-			$lang = Lingua_Post_Meta::get_language( $id );
+			$lang = Pressento_Post_Meta::get_language( $id );
 			if ( empty( $lang ) ) {
 				return new WP_Error(
 					'missing_language',
 					/* translators: %d: post ID */
-					sprintf( __( 'Post %d does not have a language set. Use the language-map format or set _Lingua_language meta first.', 'wp-lingua' ), $id ),
+					sprintf( __( 'Post %d does not have a language set. Use the language-map format or set _Pressento_language meta first.', 'wp-lingua' ), $id ),
 					array( 'status' => 400 )
 				);
 			}

@@ -5,26 +5,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Manages the _Lingua_language post meta.
+ * Manages the _Pressento_language post meta.
  *
  * Every post that participates in a translation group stores its language code
  * (e.g. "ko", "en", "ja") in this meta field.
  */
-class Lingua_Post_Meta {
+class Pressento_Post_Meta {
 
-	const META_KEY = '_Lingua_language';
+	const META_KEY = '_Pressento_language';
 
 	public function register_hooks() {
 		add_action( 'init', array( $this, 'register_meta' ) );
 	}
 
 	public function register_meta() {
-		// Lingua_Taxonomy must be loaded first (guaranteed by lingua-shared.php load order).
-		if ( ! class_exists( 'Lingua_Taxonomy' ) ) {
+		// Pressento_Taxonomy must be loaded first (guaranteed by pressento-shared.php load order).
+		if ( ! class_exists( 'Pressento_Taxonomy' ) ) {
 			return;
 		}
 
-		$post_types = Lingua_Taxonomy::get_supported_post_types();
+		$post_types = Pressento_Taxonomy::get_supported_post_types();
 
 		foreach ( $post_types as $post_type ) {
 			register_post_meta(

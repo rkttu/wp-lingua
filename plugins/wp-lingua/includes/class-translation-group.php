@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Core logic for managing translation groups.
  *
- * A "translation group" is a single term in the Lingua_group taxonomy.
+ * A "translation group" is a single term in the Pressento_group taxonomy.
  * All posts assigned to the same term are considered translations of each other.
  */
 class Lingua_Translation_Group {
@@ -21,7 +21,7 @@ class Lingua_Translation_Group {
 	 * @return int|WP_Error Term ID on success, WP_Error on failure.
 	 */
 	public static function get_or_create_group( $post_id ) {
-		$terms = wp_get_object_terms( $post_id, Lingua_Taxonomy::TAXONOMY, array( 'fields' => 'ids' ) );
+		$terms = wp_get_object_terms( $post_id, Pressento_Taxonomy::TAXONOMY, array( 'fields' => 'ids' ) );
 
 		if ( is_wp_error( $terms ) ) {
 			return $terms;
@@ -33,7 +33,7 @@ class Lingua_Translation_Group {
 
 		// Create a new group term with a unique slug.
 		$slug   = 'Lingua_' . $post_id . '_' . wp_generate_password( 6, false );
-		$result = wp_insert_term( $slug, Lingua_Taxonomy::TAXONOMY, array( 'slug' => $slug ) );
+		$result = wp_insert_term( $slug, Pressento_Taxonomy::TAXONOMY, array( 'slug' => $slug ) );
 
 		if ( is_wp_error( $result ) ) {
 			return $result;
@@ -41,7 +41,7 @@ class Lingua_Translation_Group {
 
 		$term_id = (int) $result['term_id'];
 
-		wp_set_object_terms( $post_id, $term_id, Lingua_Taxonomy::TAXONOMY );
+		wp_set_object_terms( $post_id, $term_id, Pressento_Taxonomy::TAXONOMY );
 
 		return $term_id;
 	}
@@ -54,7 +54,7 @@ class Lingua_Translation_Group {
 	 * @return bool|WP_Error
 	 */
 	public static function add_to_group( $post_id, $group_term_id ) {
-		$result = wp_set_object_terms( $post_id, $group_term_id, Lingua_Taxonomy::TAXONOMY );
+		$result = wp_set_object_terms( $post_id, $group_term_id, Pressento_Taxonomy::TAXONOMY );
 		return is_wp_error( $result ) ? $result : true;
 	}
 
@@ -65,7 +65,7 @@ class Lingua_Translation_Group {
 	 * @return bool
 	 */
 	public static function remove_from_group( $post_id ) {
-		wp_set_object_terms( $post_id, array(), Lingua_Taxonomy::TAXONOMY );
+		wp_set_object_terms( $post_id, array(), Pressento_Taxonomy::TAXONOMY );
 		return true;
 	}
 
@@ -79,11 +79,11 @@ class Lingua_Translation_Group {
 	 * @return array<string, WP_Post> Language code => WP_Post.
 	 */
 	public static function get_translations( $post_id ) {
-		$terms = wp_get_object_terms( $post_id, Lingua_Taxonomy::TAXONOMY, array( 'fields' => 'ids' ) );
+		$terms = wp_get_object_terms( $post_id, Pressento_Taxonomy::TAXONOMY, array( 'fields' => 'ids' ) );
 
 		if ( is_wp_error( $terms ) || empty( $terms ) ) {
 			// Return only this post if it has a language set.
-			$lang = Lingua_Post_Meta::get_language( $post_id );
+			$lang = Pressento_Post_Meta::get_language( $post_id );
 			if ( $lang ) {
 				return array( $lang => get_post( $post_id ) );
 			}
@@ -97,7 +97,7 @@ class Lingua_Translation_Group {
 				'posts_per_page' => 50,
 				'tax_query'      => array(
 					array(
-						'taxonomy' => Lingua_Taxonomy::TAXONOMY,
+						'taxonomy' => Pressento_Taxonomy::TAXONOMY,
 						'terms'    => (int) $terms[0],
 					),
 				),
@@ -106,7 +106,7 @@ class Lingua_Translation_Group {
 
 		$translations = array();
 		foreach ( $posts as $post ) {
-			$lang = Lingua_Post_Meta::get_language( $post->ID );
+			$lang = Pressento_Post_Meta::get_language( $post->ID );
 			if ( $lang ) {
 				$translations[ $lang ] = $post;
 			}
@@ -164,10 +164,10 @@ class Lingua_Translation_Group {
 		}
 
 		// Ensure the source post also has its language set.
-		$source_lang = Lingua_Post_Meta::get_language( $source_post_id );
+		$source_lang = Pressento_Post_Meta::get_language( $source_post_id );
 		if ( ! $source_lang ) {
 			$default = Lingua_Languages::get_default_language();
-			Lingua_Post_Meta::set_language( $source_post_id, $default );
+			Pressento_Post_Meta::set_language( $source_post_id, $default );
 		}
 
 		$new_post_id = wp_insert_post(
@@ -189,7 +189,7 @@ class Lingua_Translation_Group {
 			return $new_post_id;
 		}
 
-		Lingua_Post_Meta::set_language( $new_post_id, $language_code );
+		Pressento_Post_Meta::set_language( $new_post_id, $language_code );
 		self::add_to_group( $new_post_id, $group_id );
 
 		do_action( 'Lingua_translation_created', $new_post_id, $source_post_id, $language_code );

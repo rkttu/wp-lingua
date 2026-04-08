@@ -134,7 +134,7 @@ class Lingua_Frontend {
 	 * @return string HTML or empty string if not multilingual.
 	 */
 	public static function render_switcher( $post_id ) {
-		$current_lang = Lingua_Post_Meta::get_language( $post_id );
+		$current_lang = Pressento_Post_Meta::get_language( $post_id );
 		if ( ! $current_lang ) {
 			return '';
 		}
@@ -186,7 +186,7 @@ class Lingua_Frontend {
 	 * Filter the main query to only show posts in the active language.
 	 *
 	 * On archive, home, and search pages the query is limited to posts
-	 * whose _Lingua_language meta matches the current language.
+	 * whose _Pressento_language meta matches the current language.
 	 * Posts without any language meta are also included so that non-multilingual
 	 * content is not hidden.
 	 *
@@ -207,12 +207,12 @@ class Lingua_Frontend {
 		$meta_query = array(
 			'relation' => 'OR',
 			array(
-				'key'     => Lingua_Post_Meta::META_KEY,
+				'key'     => Pressento_Post_Meta::META_KEY,
 				'value'   => $lang,
 				'compare' => '=',
 			),
 			array(
-				'key'     => Lingua_Post_Meta::META_KEY,
+				'key'     => Pressento_Post_Meta::META_KEY,
 				'compare' => 'NOT EXISTS',
 			),
 		);
@@ -285,7 +285,7 @@ class Lingua_Frontend {
 		$translations = array();
 		if ( is_singular() ) {
 			$post_id   = get_queried_object_id();
-			$post_lang = Lingua_Post_Meta::get_language( $post_id );
+			$post_lang = Pressento_Post_Meta::get_language( $post_id );
 			if ( $post_lang ) {
 				$current_lang = $post_lang;
 				$translations = Lingua_Translation_Group::get_translations( $post_id );

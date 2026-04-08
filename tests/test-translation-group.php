@@ -36,8 +36,8 @@ class Test_Translation_Group extends WP_UnitTestCase {
 		$this->assertTrue( $result );
 
 		// Both posts should share the same term.
-		$terms1 = wp_get_object_terms( $post1, 'Lingua_group', array( 'fields' => 'ids' ) );
-		$terms2 = wp_get_object_terms( $post2, 'Lingua_group', array( 'fields' => 'ids' ) );
+		$terms1 = wp_get_object_terms( $post1, 'Pressento_group', array( 'fields' => 'ids' ) );
+		$terms2 = wp_get_object_terms( $post2, 'Pressento_group', array( 'fields' => 'ids' ) );
 
 		$this->assertSame( $terms1, $terms2 );
 	}
@@ -51,7 +51,7 @@ class Test_Translation_Group extends WP_UnitTestCase {
 
 		Lingua_Translation_Group::remove_from_group( $post2 );
 
-		$terms = wp_get_object_terms( $post2, 'Lingua_group', array( 'fields' => 'ids' ) );
+		$terms = wp_get_object_terms( $post2, 'Pressento_group', array( 'fields' => 'ids' ) );
 		$this->assertEmpty( $terms );
 	}
 
@@ -60,9 +60,9 @@ class Test_Translation_Group extends WP_UnitTestCase {
 		$post_en = self::factory()->post->create();
 		$post_ja = self::factory()->post->create();
 
-		Lingua_Post_Meta::set_language( $post_ko, 'ko' );
-		Lingua_Post_Meta::set_language( $post_en, 'en' );
-		Lingua_Post_Meta::set_language( $post_ja, 'ja' );
+		Pressento_Post_Meta::set_language( $post_ko, 'ko' );
+		Pressento_Post_Meta::set_language( $post_en, 'en' );
+		Pressento_Post_Meta::set_language( $post_ja, 'ja' );
 
 		$group = Lingua_Translation_Group::get_or_create_group( $post_ko );
 		Lingua_Translation_Group::add_to_group( $post_en, $group );
@@ -80,8 +80,8 @@ class Test_Translation_Group extends WP_UnitTestCase {
 		$post_ko = self::factory()->post->create();
 		$post_en = self::factory()->post->create();
 
-		Lingua_Post_Meta::set_language( $post_ko, 'ko' );
-		Lingua_Post_Meta::set_language( $post_en, 'en' );
+		Pressento_Post_Meta::set_language( $post_ko, 'ko' );
+		Pressento_Post_Meta::set_language( $post_en, 'en' );
 
 		$group = Lingua_Translation_Group::get_or_create_group( $post_ko );
 		Lingua_Translation_Group::add_to_group( $post_en, $group );
@@ -92,7 +92,7 @@ class Test_Translation_Group extends WP_UnitTestCase {
 
 	public function test_create_translation_makes_draft_in_group() {
 		$post_ko = self::factory()->post->create( array( 'post_title' => '원본 포스트' ) );
-		Lingua_Post_Meta::set_language( $post_ko, 'ko' );
+		Pressento_Post_Meta::set_language( $post_ko, 'ko' );
 
 		$new_id = Lingua_Translation_Group::create_translation( $post_ko, 'en' );
 
@@ -100,7 +100,7 @@ class Test_Translation_Group extends WP_UnitTestCase {
 
 		$new_post = get_post( $new_id );
 		$this->assertSame( 'draft', $new_post->post_status );
-		$this->assertSame( 'en', Lingua_Post_Meta::get_language( $new_id ) );
+		$this->assertSame( 'en', Pressento_Post_Meta::get_language( $new_id ) );
 
 		// Both should be in the same group.
 		$translations = Lingua_Translation_Group::get_translations( $post_ko );
@@ -110,7 +110,7 @@ class Test_Translation_Group extends WP_UnitTestCase {
 
 	public function test_create_translation_rejects_duplicate_language() {
 		$post_ko = self::factory()->post->create();
-		Lingua_Post_Meta::set_language( $post_ko, 'ko' );
+		Pressento_Post_Meta::set_language( $post_ko, 'ko' );
 
 		// First EN translation.
 		Lingua_Translation_Group::create_translation( $post_ko, 'en' );

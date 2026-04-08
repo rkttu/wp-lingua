@@ -85,14 +85,14 @@ class Test_REST_Controller extends WP_Test_REST_TestCase {
 		$this->assertSame( $post_ja, $data['linked']['ja'] );
 
 		// Verify language meta was set.
-		$this->assertSame( 'ko', get_post_meta( $post_ko, '_Lingua_language', true ) );
-		$this->assertSame( 'en', get_post_meta( $post_en, '_Lingua_language', true ) );
-		$this->assertSame( 'ja', get_post_meta( $post_ja, '_Lingua_language', true ) );
+		$this->assertSame( 'ko', get_post_meta( $post_ko, '_Pressento_language', true ) );
+		$this->assertSame( 'en', get_post_meta( $post_en, '_Pressento_language', true ) );
+		$this->assertSame( 'ja', get_post_meta( $post_ja, '_Pressento_language', true ) );
 
 		// Verify all posts share the same taxonomy term.
-		$terms_ko = wp_get_object_terms( $post_ko, 'Lingua_group', array( 'fields' => 'ids' ) );
-		$terms_en = wp_get_object_terms( $post_en, 'Lingua_group', array( 'fields' => 'ids' ) );
-		$terms_ja = wp_get_object_terms( $post_ja, 'Lingua_group', array( 'fields' => 'ids' ) );
+		$terms_ko = wp_get_object_terms( $post_ko, 'Pressento_group', array( 'fields' => 'ids' ) );
+		$terms_en = wp_get_object_terms( $post_en, 'Pressento_group', array( 'fields' => 'ids' ) );
+		$terms_ja = wp_get_object_terms( $post_ja, 'Pressento_group', array( 'fields' => 'ids' ) );
 
 		$this->assertSame( $terms_ko, $terms_en );
 		$this->assertSame( $terms_en, $terms_ja );
@@ -109,8 +109,8 @@ class Test_REST_Controller extends WP_Test_REST_TestCase {
 		$post_en = self::factory()->post->create();
 
 		// Pre-set language meta.
-		update_post_meta( $post_ko, '_Lingua_language', 'ko' );
-		update_post_meta( $post_en, '_Lingua_language', 'en' );
+		update_post_meta( $post_ko, '_Pressento_language', 'ko' );
+		update_post_meta( $post_en, '_Pressento_language', 'en' );
 
 		$request = new WP_REST_Request( 'POST', '/lingua/v1/link' );
 		$request->set_body_params( array(
@@ -189,7 +189,7 @@ class Test_REST_Controller extends WP_Test_REST_TestCase {
 
 		$post1 = self::factory()->post->create();
 		$post2 = self::factory()->post->create();
-		// Deliberately not setting _Lingua_language.
+		// Deliberately not setting _Pressento_language.
 
 		$request = new WP_REST_Request( 'POST', '/lingua/v1/link' );
 		$request->set_body_params( array(

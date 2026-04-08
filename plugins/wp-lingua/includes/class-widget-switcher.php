@@ -116,7 +116,7 @@ class Lingua_Widget_Switcher extends WP_Widget {
 		$translations = array();
 		if ( is_singular() ) {
 			$post_id  = get_queried_object_id();
-			$post_lang = Lingua_Post_Meta::get_language( $post_id );
+			$post_lang = Pressento_Post_Meta::get_language( $post_id );
 			if ( $post_lang ) {
 				$current_lang = $post_lang;
 				$translations = Lingua_Translation_Group::get_translations( $post_id );

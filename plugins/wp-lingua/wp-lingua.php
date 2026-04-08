@@ -11,7 +11,7 @@
  * Requires at least: 6.1
  * Tested up to: 6.9
  * Requires PHP: 7.4
- * Requires Plugins: lingua-shared
+ * Requires Plugins: pressento-shared
  * Text Domain: wp-lingua
  * Domain Path: /languages
  */

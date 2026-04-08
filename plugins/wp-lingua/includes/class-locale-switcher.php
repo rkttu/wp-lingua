@@ -72,7 +72,7 @@ class Lingua_Locale_Switcher {
 		// the main query is parsed, so we also check the cookie/QV.
 		$queried = get_queried_object();
 		if ( $queried instanceof WP_Post ) {
-			$post_lang = Lingua_Post_Meta::get_language( $queried->ID );
+			$post_lang = Pressento_Post_Meta::get_language( $queried->ID );
 			if ( $post_lang ) {
 				return $post_lang;
 			}

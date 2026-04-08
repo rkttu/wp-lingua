@@ -25,7 +25,7 @@ class Lingua_Admin {
 	}
 
 	public function add_meta_box() {
-		$post_types = Lingua_Taxonomy::get_supported_post_types();
+		$post_types = Pressento_Taxonomy::get_supported_post_types();
 
 		foreach ( $post_types as $post_type ) {
 			add_meta_box(
@@ -47,7 +47,7 @@ class Lingua_Admin {
 	public function render_meta_box( $post ) {
 		wp_nonce_field( 'Lingua_save_language', 'Lingua_nonce' );
 
-		$current_lang  = Lingua_Post_Meta::get_language( $post->ID );
+		$current_lang  = Pressento_Post_Meta::get_language( $post->ID );
 		$languages     = Lingua_Languages::get_available_languages();
 		$translations  = Lingua_Translation_Group::get_translations( $post->ID );
 
@@ -125,14 +125,14 @@ class Lingua_Admin {
 			return;
 		}
 
-		$post_types = Lingua_Taxonomy::get_supported_post_types();
+		$post_types = Pressento_Taxonomy::get_supported_post_types();
 		if ( ! in_array( $post->post_type, $post_types, true ) ) {
 			return;
 		}
 
 		if ( isset( $_POST['Lingua_language'] ) ) {
 			$lang = sanitize_text_field( wp_unslash( $_POST['Lingua_language'] ) );
-			Lingua_Post_Meta::set_language( $post_id, $lang );
+			Pressento_Post_Meta::set_language( $post_id, $lang );
 
 			// Auto-create translation group if language is set.
 			if ( $lang ) {
@@ -190,7 +190,7 @@ class Lingua_Admin {
 			return;
 		}
 
-		$lang = Lingua_Post_Meta::get_language( $post_id );
+		$lang = Pressento_Post_Meta::get_language( $post_id );
 		if ( $lang ) {
 			$languages = Lingua_Languages::get_available_languages();
 			echo esc_html( isset( $languages[ $lang ] ) ? $lang : $lang );
@@ -212,7 +212,7 @@ class Lingua_Admin {
 	 * @param string $post_type
 	 */
 	public function render_language_filter_dropdown( $post_type ) {
-		$post_types = Lingua_Taxonomy::get_supported_post_types();
+		$post_types = Pressento_Taxonomy::get_supported_post_types();
 		if ( ! in_array( $post_type, $post_types, true ) ) {
 			return;
 		}
@@ -260,7 +260,7 @@ class Lingua_Admin {
 
 		$meta_query = array(
 			array(
-				'key'   => Lingua_Post_Meta::META_KEY,
+				'key'   => Pressento_Post_Meta::META_KEY,
 				'value' => $lang,
 			),
 		);
