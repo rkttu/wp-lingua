@@ -1,8 +1,8 @@
 # WP Lingua
 
-[![Tests](https://github.com/pressento/wp-lingua/actions/workflows/test.yml/badge.svg)](https://github.com/pressento/wp-lingua/actions/workflows/test.yml)
-[![Release](https://img.shields.io/github/v/release/pressento/wp-lingua)](https://github.com/pressento/wp-lingua/releases/latest)
-[![License](https://img.shields.io/github/license/pressento/wp-lingua)](LICENSE.txt)
+[![Tests](https://github.com/rkttu/wp-lingua/actions/workflows/test.yml/badge.svg)](https://github.com/rkttu/wp-lingua/actions/workflows/test.yml)
+[![Release](https://img.shields.io/github/v/release/rkttu/wp-lingua)](https://github.com/rkttu/wp-lingua/releases/latest)
+[![License](https://img.shields.io/github/license/rkttu/wp-lingua)](LICENSE.txt)
 
 A lightweight, minimally invasive multilingual plugin for WordPress. WP Lingua links translated posts through a custom taxonomy without modifying WordPress core or theme files — everything runs as a self-contained plugin.
 
@@ -19,7 +19,7 @@ Block editor features (Gutenberg block) require WordPress 6.1+ for Block API v3 
 
 ### From GitHub Releases
 
-1. Download the latest `wp-lingua.zip` from the [Releases](https://github.com/pressento/wp-lingua/releases) page.
+1. Download the latest `wp-lingua.zip` from the [Releases](https://github.com/rkttu/wp-lingua/releases) page.
 2. In WordPress admin, go to **Plugins → Add New → Upload Plugin**.
 3. Upload the zip file and click **Install Now**.
 4. Activate the plugin.
@@ -28,7 +28,7 @@ Block editor features (Gutenberg block) require WordPress 6.1+ for Block API v3 
 
 ```bash
 cd wp-content/plugins
-git clone https://github.com/pressento/wp-lingua.git wp-lingua
+git clone https://github.com/rkttu/wp-lingua.git wp-lingua
 ```
 
 Then activate via **Plugins** in the admin dashboard.

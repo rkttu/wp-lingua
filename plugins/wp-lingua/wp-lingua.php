@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Lingua
- * Plugin URI: https://github.com/pressento/wp-lingua
+ * Plugin URI: https://github.com/rkttu/wp-lingua
  * Description: A multilingual plugin for WordPress using custom taxonomy to group translated posts.
  * Version: 0.5.0
  * Author: Jung Hyun, Nam
@@ -95,7 +95,7 @@ function wp_lingua_plugin_row_meta( $plugin_meta, $plugin_file ) {
 		if ( strpos( $meta, 'plugin-install.php?tab=plugin-information' ) !== false ) {
 			$plugin_meta[ $i ] = sprintf(
 				'<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
-				'https://github.com/pressento/wp-lingua',
+				'https://github.com/rkttu/wp-lingua',
 				esc_html__( 'View details', 'wp-lingua' )
 			);
 		}
